@@ -33,6 +33,16 @@ class ContactManagerTest {
         });
 
     }
+    @Test
+    @DisplayName("OS Machine")
+    public void ShouldTestOS(){
+        Assumptions.assumeFalse("MAC".equals(System.getProperty("ENV")));
+        contactManager.addContact("Bhupendra","Singh","0986754768");
+        Assertions.assertFalse(contactManager.getAllContacts().isEmpty());
+        Assertions.assertEquals(1,contactManager.getAllContacts().size());
+
+
+    }
     @AfterEach
     public void tearDown(){
         System.out.println("After Each");
