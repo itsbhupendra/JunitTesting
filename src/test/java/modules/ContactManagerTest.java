@@ -35,6 +35,7 @@ class ContactManagerTest {
     }
     @Test
     @DisplayName("OS Machine")
+    @RepeatedTest(value=5,name="Repeating should test OS {currentRepetition} of {totalRepetitions}")
     public void ShouldTestOS(){
         Assumptions.assumeFalse("MAC".equals(System.getProperty("ENV")));
         contactManager.addContact("Bhupendra","Singh","0986754768");
